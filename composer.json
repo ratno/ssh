@@ -1,0 +1,22 @@
+{
+    "name": "ratno/ssh",
+    "description": "Helper untuk penggunaan PHP SSH SecLib",
+    "require": {
+        "phpseclib/phpseclib": "^2.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "ratno putro sulistiyono",
+            "email": "ratno@knoqdown.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "Ratno\\SSH\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
