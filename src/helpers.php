@@ -2,10 +2,9 @@
 if(!function_exists("ssh_run")) {
     function ssh_run($rsa_key,$username,$host,$command,$base_dir="")
     {
-        $key = new \phpseclib\Crypt\RSA();
-        $key->loadKey($rsa_key);
+        $key = \phpseclib3\Crypt\RSA::load($rsa_key);
 
-        $ssh = new \phpseclib\Net\SSH2($host);
+        $ssh = new \phpseclib3\Net\SSH2($host);
 
         if (!$ssh->login($username, $key)) {
             return "login failed for $username@$host";
