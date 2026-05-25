@@ -4,7 +4,13 @@ if(!function_exists("ssh_run")) {
     {
         $key = \phpseclib3\Crypt\RSA::load($rsa_key);
 
-        $ssh = new \phpseclib3\Net\SSH2($host);
+        $port = 22;
+        if (str_contains($host, ':')) {
+            [$host, $port] = explode(':', $host, 2);
+            $port = (int) $port;
+        }
+
+        $ssh = new \phpseclib3\Net\SSH2($host, $port);
 
         if (!$ssh->login($username, $key)) {
             return "login failed for $username@$host";
